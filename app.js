@@ -5,13 +5,12 @@ let lista = [];
 
 function agregarAmigo() {
     dataAmigo = document.getElementById("amigo");
-    if (dataAmigo != ""){
+    if (dataAmigo == ""){
+        alert("Por favor, inserte un nombre");
+    }else{
         lista.push(dataAmigo);
         actualizaAmigos(dataAmigo);
         dataAmigo.innerHTML = "";
-        
-    }else{
-        alert("Por favor, inserte un nombre");
     }
 }
 
