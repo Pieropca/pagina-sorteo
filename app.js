@@ -5,17 +5,19 @@ let lista = [];
 
 function agregarAmigo() {
     dataAmigo = document.getElementById("amigo");
-    if (dataAmigo == ""){
+    texto = dataAmigo.innerHTML;
+    if (texto == ""){
         alert("Por favor, inserte un nombre");
     }else{
-        lista.push(dataAmigo);
-        actualizaAmigos(dataAmigo);
+        lista.push(texto);
+        actualizaAmigos(texto);
         dataAmigo.innerHTML = "";
     }
 }
 
 function actualizaAmigos(data) {
-    ul.innerHTML("listaAmigos") = "";
+    ul = document.getElementById("listaAmigos")
+    ul.innerHTML = "";
 
     const li = document.createElement("li"); // Crear un <li>
     li.textContent = data; // Asignar texto al <li>
