@@ -1,25 +1,33 @@
 // El principal objetivo de este desafío es fortalecer
 // tus habilidades en lógica de programación. Aquí deberás
 // desarrollar la lógica para resolver el problema.
-let lista = [];
+let amigos = [];
 
 function agregarAmigo() {
     dataAmigo = document.getElementById("amigo");
-    texto = dataAmigo.innerHTML;
+    texto = dataAmigo.value;
     if (texto == ""){
         alert("Por favor, inserte un nombre");
-    }else{
-        lista.push(texto);
-        actualizaAmigos(texto);
-        dataAmigo.innerHTML = "";
+    } else {
+        if (amigos.includes(texto)) {
+            alert("Nombre repetido, inserte uno distinto");
+        } else {
+            amigos.push(texto);
+            console.log(amigos);
+            actualizaAmigos();
+            dataAmigo.value = "";
+        }
     }
 }
 
-function actualizaAmigos(data) {
-    ul = document.getElementById("listaAmigos")
+function actualizaAmigos() {
+    ul = document.getElementById("listaAmigos");
     ul.innerHTML = "";
 
-    const li = document.createElement("li"); // Crear un <li>
-    li.textContent = data; // Asignar texto al <li>
-    ul.appendChild(li); // Agregar el <li> al <ul>
+    for (const data of amigos) {
+        const li = document.createElement("li");
+        li.textContent = data;
+        ul.appendChild(li);
+    }
+    return;
 }
